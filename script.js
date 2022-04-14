@@ -3,19 +3,29 @@ const items = [
         id: 0,
         nome: "Blusa",
         img: "./Assets/blusa.jpg",
-        quantidade: 0
+        quantidade: 0,
+        preco: 50.15
     },
     {
         id: 1,
         nome: "Bermuda",
         img: "./Assets/bermuda.jpg",
-        quantidade: 0
+        quantidade: 0,
+        preco: 30.50
     },
     {
         id: 2,
         nome: "Boné",
         img: "./Assets/bone.jpg",
-        quantidade: 0
+        quantidade: 0,
+        preco: 40.99
+    },
+    {
+        id: 3,
+        nome: "Boné",
+        img: "./Assets/bone.jpg",
+        quantidade: 0,
+        preco: 60.0
     },
 ]
 
@@ -43,8 +53,7 @@ inicializarLoja = () => {
     })
 }
 
-inicializarLoja(); 
-
+inicializarLoja();
 
 atualizarCarrinho = () => {
     var containerCarrinho = document.getElementById('carrinho');
@@ -63,6 +72,13 @@ atualizarCarrinho = () => {
     })
 }
 
+
+let precoFinal = 0;
+function valorTotal(precoProduto){
+    precoFinal = precoProduto + precoFinal;
+    document.getElementById('total').innerHTML = precoFinal;
+}
+
 var links = document.getElementsByTagName('a');
 
 for(var i = 0; i < links.length; i++){
@@ -70,6 +86,7 @@ for(var i = 0; i < links.length; i++){
         let key = this.getAttribute('key');
         items[key].quantidade++;
         atualizarCarrinho();
+        valorTotal(items[key].preco);
         return false;
     })
 }
