@@ -97,6 +97,10 @@ img{
     right: 15px;
 }
 
+#descrição{
+    padding: 4px;
+}
+
 @media screen and (max-width: 768px){
     .produto-single{
         width: 100%;
