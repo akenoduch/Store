@@ -5,7 +5,6 @@ const items = [
         preco: 199.99,
         img: "./Assets/blusa.jpg",
         quantidade: 0,
-        preco: 50.15
     },
     {
         id: 1,
@@ -13,7 +12,6 @@ const items = [
         preco: 159.99,
         img: "./Assets/bermuda.jpg",
         quantidade: 0,
-        preco: 30.50
     },
     {
         id: 2,
@@ -21,14 +19,6 @@ const items = [
         preco: 109.99,
         img: "./Assets/bone.jpg",
         quantidade: 0,
-        preco: 40.99
-    },
-    {
-        id: 3,
-        nome: "Boné",
-        img: "./Assets/bone.jpg",
-        quantidade: 0,
-        preco: 60.0
     },
 ]
 
@@ -60,6 +50,9 @@ inicializarLoja = () => {
 
 inicializarLoja();
 
+
+
+
 atualizarCarrinho = () => {
     var containerCarrinho = document.getElementById('carrinho');
     containerCarrinho.innerHTML = "";
@@ -71,17 +64,19 @@ atualizarCarrinho = () => {
             <p style="float:right;">R$ `+val.preco+`</p>
             <p id="quantidade-valor"style="float:right;">Quantidade: `+val.quantidade+`</></p>
             <div style="clear:both"></div>
+            <input style="float:right" class="delete" type="button" value="x">
         </div>
         `;
         }
     })
 }
 
-
 let precoFinal = 0;
+let precoFinalDecimal = 0;
 function valorTotal(precoProduto){
     precoFinal = precoProduto + precoFinal;
-    document.getElementById('total').innerHTML = precoFinal;
+    precoFinalDecimal = precoFinal.toFixed(2);
+    document.getElementById('total').innerHTML = precoFinalDecimal;
 }
 
 var links = document.getElementsByTagName('a');
@@ -96,5 +91,16 @@ for(var i = 0; i < links.length; i++){
     })
 }
 
+
+// removerItem = () => {
+    let carrinho = document.getElementById('carrinho');
+        carrinho.onclick = e => {
+            if (e.target.className == 'delete'){
+                e.target.parentNode.remove();
+            }
+        }
+// }
+
+// this.parentNode.remove();
 // pegar dados da tela e fazer o calculo
 // criar botão para visualizar o preço final ou usando a função preçoFinal

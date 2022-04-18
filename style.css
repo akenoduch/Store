@@ -46,10 +46,6 @@ img{
     background-color: white;
 }
 
-#produtos[background-image]{
-    opacity: 0.5;
-}
-
 #carrinho{
     max-width: 900px;
     margin: 0 auto;
@@ -108,6 +104,48 @@ img{
 
 #descrição{
     padding: 4px;
+}
+
+footer{
+    background-color: rgb(172, 44, 184);
+    width: 900px;
+    height: 70px;
+    margin: auto;
+}
+
+ul{
+    list-style: none;
+    margin: auto;
+}
+
+li{
+    margin: auto;
+    /* display: inline; não tá funcionando */
+}
+
+#github{
+    list-style-image: url(./Assets/github.png);
+    margin-left: 190px;
+    margin-top: 10px;
+}
+#instagram{
+    list-style-image: url(./Assets/instagram.png);
+    margin-left: 190px;
+}
+#linkedin{
+    list-style-image: url(./Assets/linkedin.png);
+    margin-left: 190px;
+
+}
+
+.delete{
+    position: relative;
+    bottom: 21px;
+    left: 13px;
+}
+
+input[type=button]{
+    border: none;
 }
 
 @media screen and (max-width: 768px){
